@@ -5,42 +5,35 @@ const taskList = document.getElementById("taskList");
 
 let tasks = [];
 
-// Function to render tasks
 function renderTasks() {
-    taskList.innerHTML = '';
+    taskList.innerHTML = ''; 
     tasks.forEach((task, index) => {
         const li = document.createElement("li");
         li.textContent = `${task.text} (Due: ${task.date})`;
-        if (task.completed) {
-            li.classList.add("completed");
-        }
 
-        // Mark as completed
-        li.addEventListener("click", () => {
-            tasks[index].completed = !tasks[index].completed;
+    
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("delete-btn");
+
+        
+        deleteBtn.addEventListener("click", () => {
+            tasks.splice(index, 1);
             renderTasks();
         });
 
-        // Edit task
-        li.addEventListener("dblclick", () => {
-            const newText = prompt("Edit task:", task.text);
-            if (newText) {
-                tasks[index].text = newText;
-                renderTasks();
-            }
-        });
-
-        taskList.appendChild(li);
+        li.appendChild(deleteBtn);
+        taskList.appendChild(li); 
     });
 }
 
-// Function to add task
+
 function addTask() {
     const taskText = taskInput.value.trim();
     const taskDueDate = taskDate.value;
 
     if (taskText && taskDueDate) {
-        tasks.push({ text: taskText, date: taskDueDate, completed: false });
+        tasks.push({ text: taskText, date: taskDueDate });
         taskInput.value = '';
         taskDate.value = '';
         renderTasks();
@@ -49,5 +42,5 @@ function addTask() {
     }
 }
 
-// Event listener for adding a task
+
 addTaskBtn.addEventListener("click", addTask);
