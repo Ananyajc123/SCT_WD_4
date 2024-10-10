@@ -1,38 +1,40 @@
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 100px;
+    padding: 20px;
 }
 
 .todo-container {
-    text-align: center;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    max-width: 400px;
+    margin: auto;
+    padding: 100px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #B1D8B7;
 }
 
-input[type="text"],
-input[type="datetime-local"] {
-    width: calc(100% - 20px);
+h1 {
+    text-align: center;
+}
+
+input[type="text"], input[type="datetime-local"] {
+    width: calc(100% - 22px);
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 button {
-    padding: 10px 15px;
-    margin: 5px 0;
-    cursor: pointer;
-    background-color: #28a745;
-    color: white;
+    width: 100%;
+    padding: 10px;
+    background-color:#2F5233;
+    color: wheat;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 button:hover {
@@ -49,10 +51,19 @@ li {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
 }
 
-.completed {
-    text-decoration: line-through;
-    color: grey;
+.delete-btn {
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
